@@ -10,6 +10,11 @@ from server.runcode import localoutputResult
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    """index function.
+
+    :return : Returns 1 if it is a get method, and returns the result if it is a post method.
+    :type return : json
+    """
     if request.method == 'POST':
         code = json.loads(request.get_data()).get('code')
         data = jsonify(localoutputResult(code))
