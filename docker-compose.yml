@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  server:
+    image: blackphantom:server
+    container_name: blackphantom_server
+    hostname: server
+    restart: always
+    ports:
+      - "5000:5000"
+
+  web:
+    image: blackphantom:web
+    container_name: blackphantom_web
+    hostname: web
+    restart: always
+    ports:
+      - "80:80"

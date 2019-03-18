@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>blackphantom</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+    <style type="text/css" media="screen">
+      body {
+        background-color: #282828;
+      }
+      #editor {
+        width: 98%;
+        height: 100%;
+        font-size: 18px;
+      }
+      .btn {
+        line-height: 0.2;
+      }
+      #output {
+        width: 100%;
+        height: 100%;
+        background-color: #1d2021;
+        color: #fbf1c7;
+        font-size: 18px;
+      }
+      #outside {
+        width: 100%;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      #inside {
+        width: 50%;
+        height: 900px;
+        display:inline;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- 主要内容 -->
+    <div class="mt-1 mb-2 ml-1">
+      <button type="button" class="btn btn-info" id="clear">Clear output</button>
+      <button type="button" class="btn btn-success" id="run">Run</button>
+    </div>
+
+    <div id='outside'>
+      <div id ='inside'>
+        <div id="editor"># -*- coding: utf-8 -*-</div>
+      </div>
+      <div id='inside'>
+        <div id="output"></div>
+      </div>
+    </div>
+  </body>
+
+
+  <script src="./js/jquery.min.js" charset="utf-8"></script>
+  <script src="./js/ace.js"></script>
+  <script src="./js/mode-python.js" charset="utf-8"></script>
+  <script src="./js/theme-gruvbox.js" charset="utf-8"></script>
+  <script src="./js/ext-language_tools.js"></script>
+  <script src="./js/moment.min.js" charset="utf-8"></script>
+  <script src="./js/edit.js" charset="utf-8"></script>
+
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/gruvbox");
+    ace.require("ace/ext/language_tools");
+    editor.session.setMode("ace/mode/python");
+    editor.setOptions({
+      enabeBasicAutocompletion: true,
+      //enableSnippets: true,
+      enableLiveAutocompletion: true
+    })
+  </script>
+
+  <script charset="utf-8">
+    $("#run").unbind('click');
+    $("#run").click(function() {
+      var code = editor.getValue();
+      getResult(code);
+    });
+
+    $("#clear").unbind('click');
+    $("#clear").click(function() {
+      $("#output").empty();
+    });
+  </script>
+
+</html>
