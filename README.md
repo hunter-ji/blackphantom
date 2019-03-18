@@ -8,7 +8,7 @@ Write code directly on the web page and return to the web page after the server 
 
 ## Screenshot
 
-![screenshot](/home/kuari/GitHub/blackphantom/screenshot.png)
+![screenshot](screenshot.png)
 
 
 
