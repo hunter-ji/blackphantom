@@ -12,9 +12,8 @@ function getResult(code) {
     pack = {
         'code' : code,
     }
-    // var server_url = location.protocol + '//' + document.domain + ':5000'
-    // $.post( 'blackphantom:5000', JSON.stringify(pack), function(data) {
-    $.post( 'http://localhost:5000', JSON.stringify(pack), function(data) {
+    var server_url = location.protocol + '//' + document.domain + ':5000'
+    $.post( server_url, JSON.stringify(pack), function(data) {
         console.log(data)
         console.log(data['errors'].length)
         if (data['output'].length != 0) {

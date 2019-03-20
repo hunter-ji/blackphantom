@@ -16,4 +16,4 @@ services:
     hostname: web
     restart: always
     ports:
-      - "80:80"
+      - "8000:80"
