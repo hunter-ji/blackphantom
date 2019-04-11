@@ -56,6 +56,7 @@ def localoutputResult(code):
             for i in range(3, len(L)-3):
                 R.append(L[i])
         L = ('<br>').join(R)
+        L = L.replace(' ', '&nbsp;')
         result = {'output':L, 'errors':''}
     except Exception as e:
         result = {'output':'', 'errors':e}
