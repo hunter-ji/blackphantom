@@ -8,7 +8,7 @@ from server import app
 from server.runcode import localoutputResult
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def index():
     """index function.
 
@@ -16,11 +16,11 @@ def index():
     :type return : json
     """
     if request.method == 'POST':
-        code = json.loads(request.get_data()).get('code')
+        code = request.json.get('code')
         data = jsonify(localoutputResult(code))
         res = make_response(data)
         res.headers['Access-Control-Allow-Origin'] = '*'
         res.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
         res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
         return res
-    return jsonify( { 'mes' : 1 } )
+    return jsonify({ 'mes': 1 })
